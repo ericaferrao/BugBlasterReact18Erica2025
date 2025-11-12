@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function TicketForm() {
+export default function TicketForm({ dispatch }) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [priority, setPriority] = useState('1');
@@ -21,7 +21,7 @@ export default function TicketForm() {
     const handleSubmit = (e) => {
         e.preventDefault();// prevent pag reload on form submit it is deault behaviour of form        clearForm();
 
-        const ticketDate = {
+        const ticketData = {
             id: new Date().toISOString(),
             title,
             description,
@@ -29,8 +29,11 @@ export default function TicketForm() {
 
         }
 
-        console.log("Newly created Ticket", ticketDate)
+        dispatch({ type: "ADD_TICKET", payload: ticketData })
 
+        console.log("Newly created Ticket", ticketData)
+
+        clearForm();
     }
     return (<>
         <form onSubmit={handleSubmit} className='ticket-form'>
