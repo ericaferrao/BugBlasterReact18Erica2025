@@ -20,6 +20,17 @@ export default function TicketForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();// prevent pag reload on form submit it is deault behaviour of form        clearForm();
+
+        const ticketDate = {
+            id: new Date().toISOString(),
+            title,
+            description,
+            priority
+
+        }
+
+        console.log("Newly created Ticket", ticketDate)
+
     }
     return (<>
         <form onSubmit={handleSubmit} className='ticket-form'>
