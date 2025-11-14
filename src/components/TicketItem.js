@@ -13,6 +13,7 @@ export default function TicketItem({ ticket, dispatch }) {
             <div className={`priority-dom ${priorityClass[id]}`}></div>
             <h3>{title}</h3>
             <p>{description}</p>
+            <button className="button" onClick={() => dispatch({ type: "DELETE_TICKET", payload: { id } })}>Delete</button>
         </div >
     )
 }
