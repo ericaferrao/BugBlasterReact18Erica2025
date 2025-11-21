@@ -1,3 +1,56 @@
+# Bug Blaster — 2025
+
+Bug Blaster is a lightweight React web application for creating, viewing, and managing bug tickets locally in the browser. It uses client-side state management to let users submit bug reports with priorities, edit existing reports, and maintain a clear tickets list — all through a simple, responsive UI.
+
+## Key Features
+- Create bug tickets: Submit a new bug with title, description, and priority (Low / Medium / High).
+- Edit tickets inline: Select a ticket to pre-fill the form, update fields, and save changes.
+- Delete tickets: Remove tickets from the list with a single click.
+- Tickets list view: Browse all reported bugs with priority affordances and quick actions.
+- Priority visualization: Tickets are styled to reflect priority levels for faster triage.
+- Local client-side state: Uses React’s `useReducer` to manage tickets and editing state (no backend required).
+- Responsive UI: Mobile-friendly layout for quick reporting on any device.
+
+## Tech Stack
+- React
+- JavaScript (ES6+)
+- React Hooks (`useReducer`, `useEffect`)
+- HTML5, CSS3
+
+## Getting Started (Local Development)
+Run these commands in PowerShell or your preferred shell:
+
+```powershell
+npm install
+npm start
+```
+
+Open `http://localhost:3000` in your browser to view the app.
+
+## Implementation Notes
+- Ticket ids are generated client-side using an ISO timestamp: `new Date().toISOString()`.
+- The reducer supports `ADD_TICKET`, `UPDATE_TICKET`, `DELETE_TICKET`, `SET_EDITING_TICKET`, and `CLEAR_EDITING_TICKET` action types.
+- The app is single-page and does not use a persistent backend; data is reset on page refresh unless you add storage (localStorage or a backend API).
+
+## Project Structure (selected files)
+- `src/components/TicketForm.js` — form for adding/updating tickets.
+- `src/components/TicketList.js` — lists tickets and renders `TicketItem`.
+- `src/components/TicketItem.js` — ticket display with Delete/Update actions.
+- `src/reducers/ticketReducer.js` — reducer managing tickets and editing state.
+
+## Contributing
+Feel free to open issues or pull requests. Good first improvements:
+- Persist tickets to `localStorage`.
+- Add unit tests for the reducer.
+- Improve accessibility and keyboard navigation.
+
+## License
+Add a license file if you wish to make this project open source.
+
+---
+
+Repository: add your GitHub repo URL here
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
