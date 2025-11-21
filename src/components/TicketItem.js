@@ -10,7 +10,7 @@ export default function TicketItem({ ticket, dispatch }) {
 
     return (
         <div className='ticket-item'>
-            <div className={`priority-dom ${priorityClass[id]}`}></div>
+            <div className={`priority-dom ${priorityClass[priority]}`}></div>
             <h3>{title}</h3>
             <p>{description}</p>
             <button className="button"

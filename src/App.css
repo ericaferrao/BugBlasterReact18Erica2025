@@ -7,6 +7,28 @@
   pointer-events: none;
 }
 
+.priority-dom {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+
+  .priority-dom {
+    &.high {
+      background-color: red;
+    }
+
+    &.medium {
+      background-color: orange;
+    }
+
+    &.low {
+      background-color: green;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -32,6 +54,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

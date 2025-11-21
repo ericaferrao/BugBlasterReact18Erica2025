@@ -4,11 +4,14 @@ import TicketForm from './components/TicketForm';
 import ticketReducer from './reducers/ticketReducer';
 import { useReducer } from 'react';
 import TicketList from './components/TicketList';
+import { sortTickets } from './utilities/sortingUtilities';
 
 function App() {
-  const initialState = { tickets: [], editingTicket: null };
+  const initialState = { tickets: [], editingTicket: null, sortingPreference: "High to Low" };
 
   const [state, dispatch] = useReducer(ticketReducer, initialState);
+
+  const sortedTickets = sortTickets(state.tickets, state.sortingPreference);
   return (
     <div className="App">
       <div className='container'>
@@ -18,7 +21,13 @@ function App() {
         {state.tickets.length > 0 && (
           <div className='results'>
             <h1> Tickets List</h1>
-            <TicketList tickets={state.tickets}
+
+            <select value={state.sortingPreference} onChange={e => dispatch({ type: "SET_SORTING", payload: e.target.value })}>
+              <option value="High to Low">High to Low</option>
+              <option value="Low to High">Low to High</option>
+            </select>
+
+            <TicketList tickets={sortedTickets}
               dispatch={dispatch} />
           </div>
 
